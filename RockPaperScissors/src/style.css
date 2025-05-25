@@ -22,7 +22,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 2rem;
+  margin: 1.5rem;
   padding: 1rem 2rem;
 }
 .computer-display-wrapper {
@@ -48,9 +48,8 @@ body {
 .display-game-result {
   background-color: rgb(251, 201, 4);
   font-size: 1.6rem;
-  padding: 2rem 3rem;
-  margin-top: 1.4rem;
-  margin-bottom: 1.4rem;
+  padding: 1rem 2rem;
+  margin:1.1rem 0;
   text-align: center;
 }
 
@@ -63,7 +62,7 @@ body {
 }
 .player-display-wrapper h1 {
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
 }
 .player-display {
   border: 3px dotted black;
@@ -79,7 +78,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 4rem;
-  margin: 30px 0;
+  margin: 20px 0;
 }
 
 .button-select {
