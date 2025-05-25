@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors Game</title>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <header class="header-score-board">
+        <p class="footer-text">
+          &copy; 2025. Built with &hearts; by
+          <a href="https://github.com/JOHNMwihaki">John Kimani</a>
+        </p>
+        <div class="score-board">
+          <label for="computer-score">Computer</label>
+          <span class="computer-score" id="computer-scores">0</span>
+          <span class="player-score" id="player-scores">0</span>
+          <label for="player-score">Player</label>
+        </div>
+      </header>
+      <main>
+        <!--computer they select section-->
+        <div class="computer-display-wrapper">
+          <h1>Computer</h1>
+          <h2 class="computer-display" id="computer-display-select">✊</h2>
+        </div>
+        <!--display results either computer ,player,win,lose or draw-->
+        <div class="display-game-result">
+          <h2 class="game-result" id="game-result"></h2>
+        </div>
+        <!--player display of what they selected -->
+        <div class="player-display-wrapper">
+          <h1>Player</h1>
+          <h2 class="player-display" id="player-display-select">🤚</h2>
+        </div>
+        <!--Buttons for selection-->
+        <div class="selection-wrapper">
+          <div class="rock-selection-wrapper">
+            <button
+              onclick="playRound('rock')"
+              class="button-select"
+              id="rock-select"
+            >
+              ✊
+              <span class="btn-label">Rock</span>
+            </button>
+          </div>
+          <div class="paper-selection-wrapper">
+            <button
+              onclick="playRound('paper')"
+              class="button-select"
+              id="paper-select"
+            >
+              🤚
+              <span class="btn-label">Paper</span>
+            </button>
+          </div>
+          <div class="scissors-selection-wrapper">
+            <button
+              onclick="playRound('scissors')"
+              class="button-select"
+              id="scissors-select"
+            >
+              ✌🏻
+              <span class="btn-label">Scissors</span>
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      let computerScore = 0;
+      let playerScore = 0;
+
+      const playerDisplay = document.getElementById("player-display-select");
+      const computerDisplay = document.getElementById(
+        "computer-display-select"
+      );
+      const resultDisplay = document.getElementById("game-result");
+      const playerScoreDisplay = document.getElementById("player-scores");
+      const computerScoreDisplay = document.getElementById("computer-scores");
+
+      const choiceEmoji = {
+        rock: "✊",
+        paper: "🤚",
+        scissors: "✌🏻",
+      };
+
+      //Getting the radom generation of computer choice
+      function getComputerChoice() {
+        const computerChoices = ["rock", "paper", "scissors"];
+        const randomChoice = Math.floor(Math.random() * computerChoices.length);
+        return computerChoices[randomChoice];
+      }
+
+      //Getting turn of player and updating score function
+      function playRound(playerChoice) {
+        const computerChoiceValue = getComputerChoice();
+
+        playerDisplay.textContent = choiceEmoji[playerChoice];
+        computerDisplay.textContent = choiceEmoji[computerChoiceValue];
+
+        const result = getResult(playerChoice, computerChoiceValue);
+
+        resultDisplay.textContent = result.message;
+
+        if (result.winner === "player") {
+          playerScore++;
+          playerScoreDisplay.textContent = playerScore;
+        } else if (result.winner === "computer") {
+          computerScore++;
+          computerScoreDisplay.textContent = computerScore;
+        }
+      }
+
+      //Getting results of the game
+      function getResult(player, computer) {
+        if (player === computer) {
+          return { winner: "none", message: "Draw" };
+        }
+
+        if (
+          (player === "rock" && computer === "scissors") ||
+          (player === "paper" && computer === "rock") ||
+          (player === "scissors" && computer === "paper")
+        ) {
+          return { winner: "player", message: "Player Wins" };
+        }
+
+        return { winner: "computer", message: "Computer Wins " };
+      }
+    </script>
+  </body>
+</html>

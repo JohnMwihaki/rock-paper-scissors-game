@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 16px;
+}
+body {
+  font-family: "Press Start 2P", system-ui;
+  font-size: 1.6rem;
+}
+.game-container {
+  max-width: 900px;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(166, 225, 63);
+  align-items: center;
+  margin: 0 auto;
+}
+.header-score-board {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem;
+  padding: 1rem 2rem;
+}
+.computer-display-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.computer-display-wrapper h1 {
+  text-align: center;
+  font-size: 1.6rem;
+}
+.computer-display {
+  border: 3px dotted black;
+  text-align: center;
+  font-size: 6rem;
+  --game-box-length: 130px;
+  width: var(--game-box-length);
+  height: var(--game-box-length);
+}
+/*result section*/
+
+.display-game-result {
+  background-color: rgb(251, 201, 4);
+  font-size: 1.6rem;
+  padding: 2rem 3rem;
+  margin-top: 1.4rem;
+  margin-bottom: 1.4rem;
+  text-align: center;
+}
+
+/*player display section*/
+.player-display-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.player-display-wrapper h1 {
+  text-align: center;
+  font-size: 1.6rem;
+}
+.player-display {
+  border: 3px dotted black;
+  text-align: center;
+  font-size: 6rem;
+  width: var(--game-box-length);
+  height: var(--game-box-length);
+}
+
+/*selction buttons*/
+.selection-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  margin: 30px 0;
+}
+
+.button-select {
+  font-size: 2rem;
+  width: 80px;
+  height: 80px;
+  background-color: rgb(240, 235, 235);
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+}
+.btn-label {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+#scissors-select {
+  font-size: 2rem;
+  width: 100px;
+  height: 80px;
+  background-color: rgb(240, 235, 235);
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+}
+
+@media screen and (max-width: 700px) {
+  .game-container {
+    margin: 1.2rem;
+  }
+  .score-board {
+    display: block;
+  }
+}
